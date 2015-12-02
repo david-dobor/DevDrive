@@ -1,0 +1,47 @@
+
+## ignore all directories called `data` (usually containing data, sometimes lots of it)
+data/
+
+## R hidden files
+.RData
+.Rhistory
+
+## Mac stuff
+.DS_Store
+
+## matlab's asv files
+*.asv
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+## Intermediate documents:
+*.dvi
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+
+
+# amsthm
+*.thm
+
+
+# listings
+*.lol
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+*.ist
+
+
+
+# todonotes
+*.tdo
