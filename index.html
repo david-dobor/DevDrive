@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Devdrive by david-dobor</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Devdrive</h1>
+        <p>Writing a Simple Device Driver</p>
+
+        <p class="view"><a href="https://github.com/david-dobor/DevDrive">View the Project on GitHub <small>david-dobor/DevDrive</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/david-dobor/DevDrive/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/david-dobor/DevDrive/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/david-dobor/DevDrive">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="a-simple-linux-device-driver" class="anchor" href="#a-simple-linux-device-driver" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Simple Linux Device Driver</h3>
+
+<ul>
+<li><p><code>Part1</code> just lists the steps to follow to create a file system within a file.</p></li>
+<li>
+<p><code>HelloDev</code> directory has the module that creates the device named <code>/dev/hello</code> 
+that will print "Hello, world!" to console when read by root.</p>
+
+<ul>
+<li>
+<p>Steps to compile, load, check output, and remove modules:</p>
+
+<pre><code>  cd HelloDev
+  make                  
+  sudo insmod hello_dev.ko  # insert the module
+</code></pre>
+</li>
+<li>
+<p>Now there is a device named <code>/dev/hello</code> that will produce 
+"Hello, world!" when read by root: </p>
+
+<pre><code>  sudo cat /dev/hello
+  Hello, world!
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>SimpleDriver</code> dirctory has the simple driver that also outputs
+information (like the current working directory) to the kernel log.</p></li>
+<li>
+<p>Steps to compile, load, check output, and remove modules (assume <code>simple.ko</code> is the name of the compiled module; each directory contains the needed <code>Makefile</code>):</p>
+
+<pre><code>make                   # compile the module 
+sudo insmod simple.ko  # insert the module
+dmesg                  # check the log buffer to see the outuput
+sudo rmmod simple      # remove the module
+#sudo dmesg -c         # clears the kernel log
+</code></pre>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/david-dobor">david-dobor</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
